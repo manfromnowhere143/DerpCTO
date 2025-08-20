@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DERP • The Meme Coin Renaissance</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --yellow: #FFD700;
+            --yellow-light: #FFF3C4;
+            --yellow-dark: #FFA500;
+            --gray: #0a0a0a;
+            --gray-light: #1a1a1a;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--black);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--yellow);
+            border-radius: 10px;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+            cursor: default;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Cursor Glow Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--yellow) 0%, transparent 70%);
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1;
+            transition: opacity 0.3s ease;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 5%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 100%);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav.scrolled {
+            padding: 15px 5%;
+            background: rgba(0, 0, 0, 0.98);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 32px;
+            letter-spacing: 2px;
+            animation: slideInLeft 0.8s ease;
+        }
+
+        .logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid var(--yellow);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .logo span {
+            background: linear-gradient(45deg, var(--yellow), var(--yellow-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+            animation: slideInRight 0.8s ease;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--yellow);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--yellow);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 5% 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Background Pattern */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 80%, var(--yellow) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, var(--yellow) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, var(--yellow) 0%, transparent 50%);
+            opacity: 0.02;
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1000px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-logo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 40px;
+            border: 3px solid var(--yellow);
+            border-radius: 50%;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            animation: float 3s ease-in-out infinite, glow 3s ease-in-out infinite;
+            box-shadow: 0 0 100px rgba(255, 215, 0, 0.3);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 0 60px rgba(255, 215, 0, 0.5); }
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(60px, 10vw, 120px);
+            font-weight: 400;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            line-height: 0.9;
+            animation: slideInUp 0.8s ease;
+        }
+
+        .yellow-text {
+            background: linear-gradient(45deg, var(--yellow), var(--yellow-light), var(--yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+            background-size: 200% 100%;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            animation: fadeIn 1s ease 0.3s both;
+        }
+
+        .hero-tagline {
+            font-family: 'Caveat', cursive;
+            font-size: 28px;
+            color: var(--yellow);
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease 0.5s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease 0.7s both;
+        }
+
+        .btn {
+            padding: 18px 50px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: width 0.6s, height 0.6s;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--yellow), var(--yellow-dark));
+            color: var(--black);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--yellow);
+            color: var(--yellow);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Fun Disclaimer Section */
+        .disclaimer {
+            background: linear-gradient(135deg, var(--gray) 0%, var(--gray-light) 100%);
+            padding: 100px 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .disclaimer::before {
+            content: '🎭';
+            position: absolute;
+            top: 20px;
+            left: 5%;
+            font-size: 100px;
+            opacity: 0.05;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .disclaimer::after {
+            content: '🎪';
+            position: absolute;
+            bottom: 20px;
+            right: 5%;
+            font-size: 100px;
+            opacity: 0.05;
+            animation: float 4s ease-in-out infinite reverse;
+        }
+
+        .disclaimer-box {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px;
+            border-radius: 30px;
+            background: rgba(255, 215, 0, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+        }
+
+        .disclaimer-title {
+            font-family: 'Caveat', cursive;
+            font-size: 42px;
+            margin-bottom: 30px;
+            color: var(--yellow);
+            font-weight: 700;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .disclaimer-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .disclaimer-emoji {
+            font-size: 48px;
+            margin: 20px 0;
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 64px;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 80px;
+            font-style: italic;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .about-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.03) 0%, rgba(255, 215, 0, 0.01) 100%);
+            padding: 50px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--yellow) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .about-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--yellow);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
+        }
+
+        .about-icon {
+            font-size: 64px;
+            margin-bottom: 25px;
+            display: inline-block;
+            animation: wiggle 2s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(3deg); }
+            75% { transform: rotate(-3deg); }
+        }
+
+        .about-card h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--yellow);
+            letter-spacing: 2px;
+        }
+
+        .about-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 100px 5%;
+            background: linear-gradient(180deg, var(--gray) 0%, var(--black) 100%);
+            text-align: center;
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .philosophy-quote {
+            font-family: 'Caveat', cursive;
+            font-size: 36px;
+            color: var(--yellow);
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .philosophy-text {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        /* Tokenomics */
+        .tokenomics {
+            padding: 120px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tokenomics::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.1; }
+        }
+
+        .token-stats {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            background: rgba(255, 215, 0, 0.02);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: rgba(255, 215, 0, 0.05);
+            border-color: var(--yellow);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .stat-number {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 48px;
+            background: linear-gradient(45deg, var(--yellow), var(--yellow-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* How to Buy */
+        .how-to-buy {
+            padding: 120px 5%;
+            background: linear-gradient(135deg, var(--gray) 0%, var(--gray-light) 100%);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-top: 80px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.2s; }
+        .step:nth-child(3) { animation-delay: 0.3s; }
+        .step:nth-child(4) { animation-delay: 0.4s; }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--yellow), var(--yellow-dark));
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 36px;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover .step-number {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .step h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 28px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .step p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Community Section */
+        .community {
+            padding: 120px 5%;
+            text-align: center;
+        }
+
+        .community-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 80px auto 0;
+        }
+
+        .community-card {
+            padding: 40px;
+            background: rgba(255, 215, 0, 0.02);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .community-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 215, 0, 0.05);
+            border-color: var(--yellow);
+        }
+
+        .community-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .community-card h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 28px;
+            color: var(--yellow);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* Contract */
+        .contract-section {
+            padding: 100px 5%;
+            background: linear-gradient(180deg, var(--gray-light) 0%, var(--black) 100%);
+            text-align: center;
+        }
+
+        .contract-box {
+            max-width: 900px;
+            margin: 60px auto 0;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 50px;
+            border-radius: 25px;
+            border: 2px solid var(--yellow);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contract-box::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--yellow), transparent, var(--yellow));
+            border-radius: 25px;
+            opacity: 0.5;
+            animation: borderRotate 4s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes borderRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .contract-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+        }
+
+        .contract-address {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 18px;
+            word-break: break-all;
+            color: var(--yellow);
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, var(--yellow), var(--yellow-dark));
+            color: var(--black);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 5% 40px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--black) 0%, var(--gray) 100%);
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .footer-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 40px;
+            border: 3px solid var(--yellow);
+            border-radius: 50%;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--white);
+            font-size: 24px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .social-link:hover {
+            background: var(--yellow);
+            border-color: var(--yellow);
+            color: var(--black);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-tagline {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+            color: var(--yellow);
+            margin-top: 20px;
+        }
+
+        /* Mobile Responsive */
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 30px;
+                backdrop-filter: blur(20px);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            h1 {
+                font-size: 60px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .disclaimer-box {
+                padding: 40px 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Screen */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeOut 0.5s ease 1.5s forwards;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-logo {
+            width: 120px;
+            height: 120px;
+            border: 3px solid var(--yellow);
+            border-radius: 50%;
+            margin-bottom: 30px;
+            animation: spin 1s linear infinite, glow 2s ease-in-out infinite;
+        }
+
+        .loader-text {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 24px;
+            color: var(--yellow);
+            letter-spacing: 3px;
+            animation: pulse 1s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader">
+        <div class="loader-content">
+            <img src="derpcto.png" alt="DERP" class="loader-logo">
+            <p class="loader-text">PREPARING EXCELLENCE...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="derpcto.png" alt="DERP">
+                <span>DERP</span>CTO
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#tokenomics">Tokenomics</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#contract">Contract</a></li>
+            </ul>
+            <button class="mobile-menu" id="mobileMenu">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <img src="derpcto.png" alt="DERP" class="hero-logo">
+            <h1>WELCOME TO <span class="yellow-text">DERP</span></h1>
+            <p class="hero-subtitle">THE MEME COIN RENAISSANCE</p>
+            <p class="hero-tagline">"Because sometimes the best utility is no utility"</p>
+            <div class="hero-buttons">
+                <a href="https://pancakeswap.finance" target="_blank" class="btn btn-primary">ACQUIRE DERP</a>
+                <a href="#contract" class="btn btn-secondary">EXPLORE CONTRACT</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fun Disclaimer Section -->
+    <section class="disclaimer">
+        <div class="disclaimer-box fade-in">
+            <h2 class="disclaimer-title">A Friendly Heads Up 🎈</h2>
+            <div class="disclaimer-emoji">🎭</div>
+            <p class="disclaimer-text">
+                DERP is a social experiment in pure meme culture. <br>
+                We're not promising moon missions, lambos, or revolutionary tech.<br>
+                What we offer is authenticity, community, and a good laugh.<br><br>
+                <strong>Think of it as digital performance art with a ticker symbol.</strong><br>
+                Invest responsibly, meme irresponsibly. 
+            </p>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy" id="philosophy">
+        <div class="philosophy-content fade-in">
+            <h2 class="section-title">THE <span class="yellow-text">DERP</span> MANIFESTO</h2>
+            <p class="philosophy-quote">"In a world of complex whitepapers and impossible promises, we chose simplicity"</p>
+            <p class="philosophy-text">
+                DERP represents a return to the origins of meme culture - pure, unfiltered, and honest. 
+                We're not here to disrupt industries or revolutionize finance. We're here because 
+                sometimes the internet needs something genuine, something that doesn't pretend to be 
+                more than it is. DERP is that something.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title fade-in">WHY <span class="yellow-text">DERP</span>?</h2>
+        <p class="section-subtitle fade-in">Three pillars of our non-existent foundation</p>
+        <div class="about-grid">
+            <div class="about-card fade-in">
+                <div class="about-icon">🎨</div>
+                <h3>PURE ARTISTRY</h3>
+                <p>DERP is a masterpiece of minimalism. No utility means infinite possibility. It's Schrödinger's coin - simultaneously worthless and priceless.</p>
+            </div>
+            <div class="about-card fade-in">
+                <div class="about-icon">🎪</div>
+                <h3>RADICAL HONESTY</h3>
+                <p>While others promise the stars, we promise nothing. And in that nothing, we find everything. It's philosophical, really.</p>
+            </div>
+            <div class="about-card fade-in">
+                <div class="about-icon">🌟</div>
+                <h3>MEME LEGACY</h3>
+                <p>DERP isn't just a token, it's a cultural artifact. A digital monument to the golden age of internet humor.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section class="tokenomics" id="tokenomics">
+        <h2 class="section-title fade-in"><span class="yellow-text">DERP</span>NOMICS</h2>
+        <p class="section-subtitle fade-in">Numbers that actually make sense</p>
+        <div class="token-stats">
+            <div class="stat-card fade-in">
+                <div class="stat-number">369M</div>
+                <div class="stat-label">Total Supply</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">0%</div>
+                <div class="stat-label">Transaction Tax</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">90%</div>
+                <div class="stat-label">Liquidity Pool</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Transparency</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community" id="community">
+        <h2 class="section-title fade-in">JOIN THE <span class="yellow-text">RENAISSANCE</span></h2>
+        <p class="section-subtitle fade-in">Where memes meet meaning</p>
+        <div class="community-cards">
+            <div class="community-card fade-in">
+                <div class="community-icon">🎭</div>
+                <h3>THE ARTISTS</h3>
+                <p>Creators who understand that sometimes the best art is the art of doing nothing.</p>
+            </div>
+            <div class="community-card fade-in">
+                <div class="community-icon">🎪</div>
+                <h3>THE PHILOSOPHERS</h3>
+                <p>Deep thinkers who ponder the meaning of meaninglessness.</p>
+            </div>
+            <div class="community-card fade-in">
+                <div class="community-icon">🌟</div>
+                <h3>THE BELIEVERS</h3>
+                <p>Visionaries who see potential in the absence of potential.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Buy Section -->
+    <section class="how-to-buy" id="buy">
+        <h2 class="section-title fade-in">ACQUIRE <span class="yellow-text">DERP</span></h2>
+        <p class="section-subtitle fade-in">Four simple steps to enlightenment</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>PREPARE</h3>
+                <p>Install MetaMask and add the BNB Smart Chain network to your digital arsenal</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>ACQUIRE</h3>
+                <p>Obtain BNB from your preferred exchange and transfer to your MetaMask wallet</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>CONNECT</h3>
+                <p>Visit PancakeSwap and connect your wallet to the decentralized exchange</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>TRANSFORM</h3>
+                <p>Exchange your BNB for DERP and join the renaissance of meme culture</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contract Section -->
+    <section class="contract-section" id="contract">
+        <h2 class="section-title fade-in">THE <span class="yellow-text">CONTRACT</span></h2>
+        <p class="section-subtitle fade-in">Your gateway to greatness</p>
+        <div class="contract-box fade-in">
+            <div class="contract-label">BSC Smart Contract</div>
+            <div class="contract-address" id="contractAddress">
+                0x0000000000000000000000000000000000000000
+            </div>
+            <button class="copy-btn" onclick="copyContract()">COPY ADDRESS</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <img src="derpcto.png" alt="DERP" class="footer-logo fade-in">
+        <div class="social-links fade-in">
+            <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter">𝕏</a>
+            <a href="https://t.me" target="_blank" class="social-link" title="Telegram">✈</a>
+            <a href="https://discord.com" target="_blank" class="social-link" title="Discord">💬</a>
+        </div>
+        <p class="footer-text fade-in">
+            © 2024 DERP • All memes reserved<br>
+            This is not financial advice. This is financial art.
+        </p>
+        <p class="footer-tagline fade-in">~ Stay Derpy, Stay Free ~</p>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navLinks.classList.remove('active');
+                    mobileMenu.textContent = '☰';
+                }
+            });
+        });
+
+        // Copy Contract Address with Style
+        function copyContract() {
+            const address = document.getElementById('contractAddress').textContent.trim();
+            navigator.clipboard.writeText(address).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✓ COPIED!';
+                btn.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                }, 2000);
+            });
+        }
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Remove loader after page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.loader').style.display = 'none';
+            }, 2000);
+        });
+
+        // Parallax effect on mouse move (subtle)
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            document.querySelectorAll('.hero-logo').forEach(logo => {
+                logo.style.transform = `translateY(${-15 + y * 10}px) scale(1.05) rotateY(${(x - 0.5) * 10}deg)`;
+            });
+        });
+
+        // Add some derp magic
+        let derpMode = false;
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'd' && e.ctrlKey) {
+                e.preventDefault();
+                derpMode = !derpMode;
+                document.body.style.transform = derpMode ? 'rotate(1deg)' : 'rotate(0deg)';
+                document.body.style.transition = 'transform 0.5s ease';
+            }
+        });
+    </script>
+</body>
+</html>
