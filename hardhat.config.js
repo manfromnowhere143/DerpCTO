@@ -1,4 +1,5 @@
 require("@nomiclabs/hardhat-waffle");
+require("@nomicfoundation/hardhat-verify");
 require("dotenv").config();
 
 module.exports = {
@@ -31,4 +32,9 @@ module.exports = {
     cache: "./cache",
     artifacts: "./artifacts"
   },
+  etherscan: {
+    apiKey: {
+      bsc: process.env.BSCSCAN_API_KEY || "YOUR_API_KEY_HERE"
+    }
+  }
 };
