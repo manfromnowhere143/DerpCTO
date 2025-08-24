@@ -1,7 +1,7 @@
 # DERP • The Pattern of Nothing
 
 <div align="center">
-  <img src="website/derpcto.png" alt="DERP" width="200"/>
+  <img src="website/twinkle.png" alt="DERP" width="200"/>
   
   ### སྟོང་པ་ཉིད
   
