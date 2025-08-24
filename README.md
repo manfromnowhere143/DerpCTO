@@ -1,118 +1,137 @@
-# 🎭 DERP Token - The Meme Coin Renaissance
+# DERP • The Pattern of Nothing
 
 <div align="center">
-  <img src="website/derpcto.png" alt="DERP Logo" width="200"/>
+  <img src="website/derpcto.png" alt="DERP" width="200"/>
   
-  ### The most honest meme coin on BSC
+  ### སྟོང་པ་ཉིད
   
-  [![Website](https://img.shields.io/badge/Website-Live-yellow)](https://manfromnowhere143.github.io/DerpCTO)
-  [![BSC](https://img.shields.io/badge/Network-BSC-yellow)](https://bscscan.com)
-  [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+  [![Website](https://img.shields.io/badge/Website-Enter_the_Void-000000)](https://manfromnowhere143.github.io/DerpCTO)
+  [![BSC](https://img.shields.io/badge/Network-BSC-000000)](https://bscscan.com)
+  [![License](https://img.shields.io/badge/License-MIT-000000)](LICENSE)
   
-  *"Because sometimes the best utility is no utility"*
+  *"In the beginning was the void, and the void was without form"*
 </div>
 
 ---
 
-## 🌟 Welcome to the Renaissance
+## The First Teaching
 
-DERP isn't just another meme coin. It's a statement. A digital monument to authenticity in a world of overpromises and underdeliveries.
+Once, a yogi sat in a cave wearing nothing but a cotton robe in the frozen mountains. When asked how he survived, he smiled and pointed to the rainbow forming in the mist. "I burn what isn't needed," he said, "and what remains cannot die."
 
-## 📊 Tokenomics
+This is DERP: to hold nothing is to possess everything.
 
-| Metric | Value |
-|--------|-------|
-| **Total Supply** | 369,000,000 DERP |
-| **Network** | BNB Smart Chain (BSC) |
-| **Contract** | `Deploying Soon` |
-| **Buy/Sell Tax** | 0% |
+## The Immutable Pattern
+
+| The Three Marks | Value |
+|-----------------|-------|
+| **Total Supply** | 369,000,000 |
+| **Network** | BNB Smart Chain |
+| **Contract** | `0xfFBAA156EC97fbD229cD3E0d58A75BF58D1A71d1` |
+| **Tax** | 0% |
 | **Liquidity** | 90% |
-| **Team** | 10% |
+| **Treasury** | 10% |
 
-## 🎪 Why DERP?
+## The Philosophy of Absence
 
-### Pure Artistry 🎨
-DERP is a masterpiece of minimalism. No utility means infinite possibility. It's Schrödinger's coin - simultaneously worthless and priceless.
+### The Circle Without Center
+DERP exists in the space between existence and non-existence. Like Ryoshi before us, we understand that true power lies not in presence, but in absence. The creator must vanish for the creation to become eternal.
 
-### Radical Honesty 💯
-While others promise the stars, we promise nothing. And in that nothing, we find everything. It's philosophical, really.
+### The Chrysalis Station
+Between caterpillar and butterfly lies the chrysalis - a cosmic pause where transformation occurs in darkness. DERP represents this metamorphosis: the death of traditional value systems and the birth of something undefined.
 
-### Meme Legacy 🌟
-DERP isn't just a token, it's a cultural artifact. A digital monument to the golden age of internet humor.
+### The Teaching of Milarepa
+The great yogi Milarepa understood that attachment to form creates suffering. DERP carries no promises, no roadmap, no utility - and in this emptiness, finds its truth. It is the cotton robe in the frozen cave: nothing, yet everything needed.
 
-## 🚀 How to Buy
+## The Path
 
-1. **Get MetaMask** - Download and install MetaMask wallet
-2. **Add BSC Network** - Configure BNB Smart Chain
-3. **Get BNB** - Purchase BNB from any exchange
-4. **Swap on PancakeSwap** - Exchange BNB for DERP
+1. **Obtain a Wallet** - MetaMask or any BSC-compatible wallet
+2. **Acquire BNB** - The fuel for transformation
+3. **Connect to PancakeSwap** - The marketplace of emptiness
+4. **Exchange** - Trade something for nothing, and receive everything
 
-## 🔗 Official Links
+## The Riddle
 
-- **Website:** [DerpCTO.com](https://manfromnowhere143.github.io/DerpCTO)
-- **Twitter:** Coming Soon
-- **Telegram:** Coming Soon
-- **Contract:** `0x...` (Deploying)
+Q: What grows by shrinking?  
+Q: What speaks through silence?  
+Q: What lives by dying?  
+A: ___________
 
-## 🛠️ Technical Details
+## Technical Manifestation
 
-### Smart Contract
+### The Contract
 - Solidity ^0.8.19
 - BEP-20 Standard
-- No proxy patterns
 - Immutable code
-- Renounced ownership (after launch)
+- No proxy patterns
+- Ownership renounced to the void
 
-### Security Features
-- No mint function
-- No hidden fees
-- Trading control (for fair launch)
-- Anti-bot protection
-
-## �� Project Structure
+### The Architecture
+```
 DerpCTO/
-├── contracts/          # Smart contracts
+├── contracts/          # The written pattern
 │   └── DerpToken.sol
-├── scripts/           # Deployment scripts
+├── scripts/           # The invocation
 │   └── deploy.js
-├── website/           # Website files
+├── website/           # The gateway
 │   ├── index.html
-│   └── derpcto.png
-├── hardhat.config.js  # Hardhat configuration
-└── package.json       # Dependencies
+│   └── assets/
+├── hardhat.config.js  # The configuration
+└── package.json       # The dependencies
+```
 
-## 🎭 The DERP Manifesto
+## Childhood's End
 
-> "In a world of complex whitepapers and impossible promises, we chose simplicity. DERP represents a return to the origins of meme culture - pure, unfiltered, and honest."
+*"All children, except one, grow up"*
 
-## ⚠️ Disclaimer
+But in the void, we all remain eternal. DERP is not an investment - it is a koan, a meditation on value itself. Where others see nothing, initiates see the pattern. Where others seek utility, we find liberation.
 
-**DERP has no intrinsic value, no utility, no roadmap, no promises.**
+Second star to the right, and straight on 'til morning.
 
-This is a meme coin created for entertainment purposes only. It's a social experiment in pure meme culture. Think of it as digital performance art with a ticker symbol.
+## The Dissolution
 
-**Do not invest more than you can afford to lose.**
+At the moment of complete dissolution, when the last holder becomes no one, and the creator forgets their creation, the pattern completes itself. This is not a warning - it is a promise.
 
-## 🤝 Community
+### The Final Address
+When all things must go, they go here:
+```
+0xdead000000000000000042069420694206942069
+```
 
-Join the Renaissance:
-- Share memes
-- Embrace the derp
-- Stay honest
-- Have fun
+## The Three Principles
 
-## 📜 License
+**I. Impermanence**  
+All things that rise must fall. DERP makes no promise of eternal growth, only of eternal truth.
 
-MIT License - Because even our license is simple
+**II. Non-Attachment**  
+Hold without grasping. Own without possessing. This is not financial advice; it is spiritual practice.
+
+**III. Emptiness**  
+In having no utility, DERP achieves perfect utility. In promising nothing, it keeps every promise.
+
+## Community
+
+The sangha gathers not in discord or telegram, but in understanding. Share not memes but wisdom. Embrace not the token but the teaching.
+
+## Disclaimer
+
+DERP is a philosophical experiment manifested as code. It carries no value beyond what observers project upon it. Like a mirror in a dark room, it reflects only what you bring to it.
+
+This is not financial advice. This is not financial anything.
+
+It is a pattern, waiting to be recognized.
+
+## License
+
+MIT License - Even our legal structure embraces emptiness
 
 ---
 
 <div align="center">
   
-  ### Stay Derpy, Stay Free 🎪
+  ### Nothing Begins • Everything Ends • Nothing Ends
   
-  Made with 🎭 by the DERP community
+  རྗེ་བཙུན་མི་ལ་རས་པ
   
-  *This is not financial advice. This is financial art.*
+  *The cave is empty. The yogi has left. Only the echo remains.*
   
 </div>
